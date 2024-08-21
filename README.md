@@ -1,5 +1,7 @@
 # Classic-Movie-Recommender
 
+![MOV_REC](https://github.com/ANURUDRA-JENA/Web-Scraping-Project-2/blob/6045fc0f32a07d37d7d5fcc442898769fa879365/asset_management/Designer%20(4).png)
+
 <p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;'><strong><span style="font-size:19px;">Objective</span></strong></p>
 <p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;'>To create a movie recommender system that:</p>
 <ul style="margin-bottom:0in;margin-top:0in;" type="disc">
