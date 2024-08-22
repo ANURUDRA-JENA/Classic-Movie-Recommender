@@ -2,6 +2,19 @@
 
 ![MOV_REC](https://github.com/ANURUDRA-JENA/Web-Scraping-Project-2/blob/6045fc0f32a07d37d7d5fcc442898769fa879365/asset_management/Designer%20(4).png)
 
+<p data-sourcepos="3:1-3:38"><strong>Movie Recommender I: A Walkthrough</strong></p>
+<p data-sourcepos="5:1-5:23"><strong>Dataset Preparation</strong></p>
+<p data-sourcepos="7:1-7:84">Our starting point was the extensive IMDB Dataset,&nbsp;which encompasses movie metadata,&nbsp;ratings,&nbsp;links,&nbsp;keywords,&nbsp;and credits.&nbsp;For our recommender system,&nbsp;we focused on key features like genre,&nbsp;keywords,&nbsp;overview,&nbsp;cast,&nbsp;and crew,&nbsp;all of which are readily available on individual movie pages.&nbsp;While initially considering reviews,&nbsp;we decided to exclude them due to their subjective nature,&nbsp;which could potentially introduce bias into our LSTM algorithm&apos;s decision-making process.</p>
+<p data-sourcepos="9:1-9:138">To consolidate the necessary information,&nbsp;we merged the various datasets and extracted the relevant features.&nbsp;This initial data processing step yielded a comprehensive dataset spanning from 1984 to 2013.</p>
+<p data-sourcepos="11:1-11:25"><strong>Expanding the Dataset</strong></p>
+<p data-sourcepos="13:1-13:390">To ensure our recommendations included more recent movies,&nbsp;we embarked on a web scraping endeavor.&nbsp;We initially attempted to extract movie titles from Wikipedia using its API,&nbsp;but when that proved unsuccessful,&nbsp;we turned to IMDB&apos;s website.&nbsp;Our scraper,&nbsp;hosted on GitHub,&nbsp;efficiently collected genre,&nbsp;keywords,&nbsp;overview,&nbsp;and other essential details for movies released between 2013 and 2023.</p>
+<p data-sourcepos="15:1-15:152">To expedite the scraping process,&nbsp;we leveraged Python&apos;s Multiprocessing and Pooling modules.&nbsp;While multi-threading might have been faster for read-write operations,&nbsp;our approach of opening four links simultaneously and scraping data for individual movies proved to be more efficient.&nbsp;We iteratively scraped movie information,&nbsp;appended it to a shared memory pool,&nbsp;converted the pool into a DataFrame,&nbsp;and finally outputted the results in CSV format.</p>
+<p data-sourcepos="17:1-17:32"><strong>Data Cleaning and Processing</strong></p>
+<p data-sourcepos="19:1-19:276">Once the data was collected,&nbsp;we meticulously cleaned and processed it.&nbsp;Given our prior knowledge of the required features,&nbsp;we focused solely on extracting and preparing these specific elements.&nbsp;This step resulted in two datasets,&nbsp;ready for the subsequent recommendation phase.</p>
+<p data-sourcepos="21:1-21:29"><strong>Recommendation Generation</strong></p>
+<p data-sourcepos="23:1-23:138">With the data prepared, we employed the LSTM algorithm to generate personalized movie recommendations. By analyzing the extracted features and patterns within the dataset, the LSTM model was able to suggest movies that aligned with users&apos; preferences and interests.</p>
+
+
 <p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;'><strong><span style="font-size:19px;">Objective</span></strong></p>
 <p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;'>To create a movie recommender system that:</p>
 <ul style="margin-bottom:0in;margin-top:0in;" type="disc">
