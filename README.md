@@ -14,6 +14,43 @@
 <p data-sourcepos="21:1-21:29"><strong>Recommendation Generation</strong></p>
 <p data-sourcepos="23:1-23:201">Once the data was prepared, I employed the LSTM algorithm to generate personalized movie recommendations. By analyzing the extracted features and patterns within the dataset, the LSTM model was able to suggest movies that aligned with users&apos; preferences and interests.</p>
 
+<h3>About the LSTM Model:</h3>
+<ol>
+    <li>
+        <p><strong>Stemming:</strong></p>
+        <ul>
+            <li>A <code>PorterStemmer</code> object is created to reduce words to their base form.</li>
+            <li>A function <code>stem</code> is defined to apply stemming to a given text, splitting it into words and stemming each word using the <code>PorterStemmer</code>.</li>
+            <li>The <code>stem</code> function is applied to the <code>collection</code> column of the <code>final_merge</code> DataFrame, creating a new column with stemmed words.</li>
+        </ul>
+    </li>
+    <li>
+        <p><strong>Feature Extraction:</strong></p>
+        <ul>
+            <li>A&nbsp;<code>CountVectorizer</code> object is created with a maximum feature count of 5000 and English stop words removed.</li>
+            <li>The&nbsp;<code>fit_transform</code> method of the&nbsp;<code>CountVectorizer</code> is applied to the stemmed&nbsp;<code>collection</code> column of&nbsp;<code>final_merge</code>,&nbsp;creating a term frequency matrix.</li>
+            <li>The matrix is converted to a NumPy array and its shape is printed.</li>
+        </ul>
+    </li>
+    <li>
+        <p><strong>Similarity Calculation:</strong></p>
+        <ul>
+            <li>A&nbsp;<code>cosine_similarity</code> function is used to calculate the cosine similarity between the feature vectors of the movies.</li>
+        </ul>
+    </li>
+    <li>
+        <p><strong>Recommendation Function:</strong></p>
+        <ul>
+            <li>A function&nbsp;<code>recommend</code> is defined to take a movie title as input and recommend similar movies.</li>
+            <li>The index of the input movie is found in the&nbsp;<code>final_merge</code> DataFrame.</li>
+            <li>The cosine similarity between the input movie and all other movies is calculated.</li>
+            <li>The most similar movies (excluding the input movie itself) are sorted based on their similarity scores and the top 5 are printed.</li>
+        </ul>
+    </li>
+</ol>
+<p>In summary, the code first prepares the data by stemming the words and creating a term frequency matrix. Then, it calculates the similarity between movies based on their feature vectors. Finally, it provides a recommendation function that suggests similar movies based on the input movie title.</p>
+
+
 <p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;'><strong><span style="font-size:19px;">Objective</span></strong></p>
 <p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:11.0pt;font-family:"Calibri",sans-serif;'>To create a movie recommender system that:</p>
 <ul style="margin-bottom:0in;margin-top:0in;" type="disc">
